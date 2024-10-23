@@ -166,15 +166,16 @@ export const Banner = styled.div`
         img{
         margin-top: 20px;
         width: 100%;
-        height: 500px;
+        height: auto;
         background: transparent;
     }
 `
 
 export const Category = styled.div`
-    width: 1285px;
-    height: 567px;
-    margin-top: 72px;
+    width: 100%;
+    max-width: 1285px;
+    height: auto;
+    margin: 72px auto;
     margin-left: 100px;
     margin-bottom: 30px;
 `
@@ -191,6 +192,9 @@ export const Image = styled.div`
         width: 620px;
         height: 260px;
         margin-right: 10px;
+        @media (max-width: 768px) {
+            width: 100%; 
+        }
     }
 `
 
