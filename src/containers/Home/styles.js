@@ -15,7 +15,9 @@ export const Header = styled.header`
     height: 100px;
     background-color: #FFFFFF;
     opacity: 1;
-    @media (max-width: 768px) {
+    @media (max-width: 375px) {
+        justify-content: space-between;
+        align-items: center;
         flex-direction: column; 
         height: auto; 
     }
@@ -26,6 +28,9 @@ export const LogoAgrada = styled.div`
     margin-right: 50px;
     width: 192px;
     height: 30px;
+    @media (max-width: 375px) {
+        margin: 10px 20px;
+    }
 `
 
 export const Input = styled.input`
@@ -37,9 +42,9 @@ export const Input = styled.input`
     background-color: #ededed;
     border-radius: 5px;
     opacity: 1;
-    @media (max-width: 768px) {
-        width: 100%; 
-        margin-left: 0; 
+    @media (max-width: 375px) {
+        margin: 20px 20px 0 20px;
+        width: calc(100% - 40px); 
     }
 `
 
@@ -54,9 +59,9 @@ export const InputLable = styled.p`
     font-weight: normal;
     color: #707070;
     opacity: 1;
-    @media (max-width: 768px) {
-        margin-left: 0;
-        text-align: center;
+    @media (max-width: 375pxpx) {
+        margin-left: 20px;
+        text-align: left;
     }
 `
 export const Login = styled.div`
@@ -86,7 +91,7 @@ export const Login = styled.div`
             text-decoration: underline;
         }
     }
-    @media (max-width: 768px) {
+    @media (max-width: 375px) {
         grid-template-columns: 1fr;
         align-items: center; 
         margin: 10px 0; 
@@ -100,12 +105,22 @@ export const CallService = styled.div`
     margin-left: 50px;
     width: 95px;
     height: 23px;
+
+    @media (max-width: 375px) {
+        grid-template-columns: 1fr;
+        justify-content: center; 
+        margin-left: 0; 
+        margin-top: 10px;
+    }
     img{
         margin-right: 8px;
         width: 25px;
         height: 23px;
         background: transparent;
         opacity: 1;
+        @media (max-width: 375px) {
+            margin: 0 auto 5px;
+    }
     }
     p{
         margin-top: 3px;       
@@ -115,15 +130,18 @@ export const CallService = styled.div`
         font-weight: normal;
         color: #000000;
         opacity: 1;
+        cursor: pointer;
         &:hover {
             color:  #800080;
             text-decoration: underline;
         }
+        @media (max-width: 375px) {
+            margin: 0;
+            text-align: center;
+            font-size: 11px;
     }
-    @media (max-width: 768px) {
-        margin-left: 0px; 
-        justify-content: center; 
     }
+    
 `
 
 export const Cart = styled.div`
@@ -152,9 +170,10 @@ export const Cart = styled.div`
             text-decoration: underline;
         }
     }
-    @media (max-width: 768px) {
-        margin-left: 0px; 
-        justify-content: center; 
+    @media (max-width: 375px) {
+        grid-template-columns: 1fr;
+        align-items: center; 
+        margin: 10px 0; 
     }
 `
 
@@ -178,6 +197,9 @@ export const Category = styled.div`
     margin: 72px auto;
     margin-left: 100px;
     margin-bottom: 30px;
+    @media (max-width: 768px) {
+        margin-left: 20px; 
+    }
 `
 
 export const Image = styled.div`
@@ -188,12 +210,22 @@ export const Image = styled.div`
     margin-left: 100px;
     width: 1250px;
     height: 260px;
+    @media (max-width: 375px) {
+        flex-direction: column;
+        margin-left: 0;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        width: 100%;
+    }
     .templates{
         width: 620px;
         height: 260px;
         margin-right: 10px;
-        @media (max-width: 768px) {
-            width: 100%; 
+        @media (max-width: 375px) {
+            width: 100%;
+            height: auto;
+            margin-right: 0;
+            margin-bottom: 20px;
         }
     }
 `
@@ -212,6 +244,10 @@ export const AgradaResume = styled.div`
         height: 29px;
         background-color: transparent;
         opacity: 1;
+        @media (max-width: 375px) {
+            margin-right: 0;  
+            width: 150px;
+        }
     }
     p{
         width: 1000px;
@@ -221,6 +257,11 @@ export const AgradaResume = styled.div`
         font-size: 12px;
         font-family: 'Axiforma';
         color: #FFFFFF;
+        @media (max-width: 375px) {
+            width: 100%;
+            font-size: 10px;
+            text-align: center;
+        }
     }
 `
 export const Payment = styled.div`
@@ -232,6 +273,10 @@ export const Payment = styled.div`
     height: 155px;
     background: #FFFFFF;
     opacity: 1;
+    @media (max-width: 375px) {
+        height: auto;
+        padding: 10px;
+    }
     p{
         margin-left: 125px;
         width: 91px;
@@ -240,11 +285,179 @@ export const Payment = styled.div`
         font-weight: normal;
         font-size: 15px;
         font-family: 'Poppins';
+        @media (max-width: 375px) {
+            margin-left: 0;
+            width: auto;
+            font-size: 14px;
+        }
     }
     img{
         width: 350px;
         height: 25px;
         background: transparent;
+        opacity: 1;
+        @media (max-width: 375px) {
+            width: 100%;
+            height: auto;
+        }
+    }
+`
+
+// export const ContainerLogin = styled.div`
+//     display: flex;
+//     flex-direction: column;
+//     background-color: white;
+//     border-radius: 8px;
+//     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+//     opacity: 1;
+// `
+export const LoginModal = styled.div`
+    margin-top: 30px;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);    
+    position: absolute;
+    background: #FFFFFF;
+    border: 1px solid #DDDDDD;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 1;
+    width: 177px;
+    height: 157px;
+
+    @media (max-width: 375px) {
+        width: calc(100% - 40px);
+        height: auto;
+        margin-left: 20px;
+        margin-top: 20px;
+    }
+    p{
+        margin-left: 78px;
+        margin-bottom: 0px;
+        margin-top: 0px;
+        width: 17px;
+        height: 17px;
+        text-align: center;
+        font-weight: normal;
+        font-size: 12px;
+        font-family: 'Poppins';
+        letter-spacing: 0px;
+        text-decoration: none;
+        color: #000000;
+        opacity: 1;
+    }
+`;
+
+export const LoginButton = styled.button`
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    width: 137px;
+    height: 40px;
+    background: #34CB2E;
+    border-radius: 5px;
+    opacity: 1;
+    text-align: center;
+    font-weight: 800; 
+    font-size: 13px;
+    font-family: 'Poppins';
+    letter-spacing: 0px;
+    color: #000000;
+ `   
+export const CadastroButon = styled.button`
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    width: 137px;
+    height: 40px;
+    background-color: #000000;
+    border-radius: 5px;
+    opacity: 1;
+    text-align: center;
+    font-weight: 800;
+    font-size: 13px;
+    font-family: 'Poppins';
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    @media (max-width: 375px) {
+                width: 100%;
+                max-width: 137px;
+    }
+    `   
+
+export const CartModal = styled.div`
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    z-index: 1;
+    margin-top: -328px;
+    margin-left: 428px;
+    width: 400px;
+    height: 80px;
+    background: #FFFFFF;
+    border: 1px solid #DDDDDD;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 1;
+    button{
+        cursor: pointer;
+        margin-left: 50px;
+        margin-top: 0px;
+        display: flex;
+        justify-content: center;
+        width: 20px;
+        height: 25px;
+        font-weight: normal;
+        font-size: 15px;
+        font-family: 'Poppins';
+    }
+    p{
+        margin-left: 88px;
+        margin-right: 5px;
+        margin-top: 32px;
+        align-items: center;
+    }
+    @media (max-width: 375px) {
+        width: 100%;
+        margin-left: 0;
+        flex-direction: column;
+        height: auto;
+    }
+`
+
+export const CallModal = styled.div`
+    margin-top: 30px;
+    position: absolute;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    justify-content: center;
+    text-decoration: none;
+    z-index: 1;
+    width: 190px;
+    height: 138px;
+    background: #FFFFFF;
+    border: 1px solid #DDDDDD;
+    border-radius: 5px;
+    opacity: 1;
+    p{
+        margin-top: auto;        
+        width: 137px;
+        height: 43px;
+        text-align: left;
+        font-weight: normal;
+        font-size: 12px;
+        font-family: 'Poppins';
+        letter-spacing: 0px;
+        color: #000000;
+        opacity: 1;
+    }
+    button{
+        cursor: pointer;
+        margin-top: 15px;
+        margin-bottom: auto;
+        width: 137px;
+        height: 40px;
+        background: #34CB2E;
+        border-radius: 5px;
         opacity: 1;
     }
 `

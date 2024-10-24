@@ -10,7 +10,6 @@ import BannerTemplates from '../../assets/banner-templates.png';
 import BannerServices from '../../assets/banner-services.png';
 import LogoWithe from '../../assets/Logo-white.png';
 import PaymentImg from '../../assets/icon-pay.png';
-import Modal from '../../Components/ModalLogin';
 import {
     Container,
     Header,
@@ -23,33 +22,75 @@ import {
     Category,
     Image,
     AgradaResume,
-    Payment
+    Payment,
+    LoginButton,
+    LoginModal,
+    CartModal,
+    CadastroButon,
+    CallModal
 } from './styles';
 
 
 function Home() {
-
+    
+    const [keyPressed, setKeyPressed] = useState();
+    const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+    const [isCallModalOpen, setIsCallModalOpen] = useState(false);
+    const [isCartModalOpen, setIsCartModalOpen] = useState(false);
+    const [cartMessage, setCartMessage] = useState('');
     const [isCloned, setIsCloned] = useState(false);
-    const [isOpen, setIsOpen] = useState(false);
+
     const categoryRef = useRef(null); 
-    const imageRef = useRef(null); 
+    const clonedCategoryContainerRef = useRef(null);
+
+    const openCartModal = (productName) => {
+        setCartMessage(`${productName} foi adicionado ao carrinho!`);
+        setIsCartModalOpen(true);
+
+        setTimeout(() => {
+            setIsCartModalOpen(false);
+        }, 100000);
+    };
+
+    const closeCartModal = () => {
+        setIsCartModalOpen(false);
+    };
+        
+    useEffect(() => {
+        const handleKeyDown = (event) => {
+          setKeyPressed(event.key);
+          console.log(`Tecla pressionada ${event.key}`);
+
+            if (event.key === 'Faça Login') {
+                setIsLoginModalOpen(true);
+            } else if (event.key === 'Atendimento') {
+                setIsCallModalOpen(true);
+            }
+        };
+    
+        window.addEventListener('keydown', handleKeyDown);
+    
+        return () => {
+          window.removeEventListener('keydown', handleKeyDown);
+        };
+      }, []);
 
     useEffect(() => {
-        
-        if (categoryRef.current && !isCloned) {
-            const categoryClone = categoryRef.current.cloneNode(true); 
 
-            if (imageRef .current) {
-                imageRef .current.appendChild(categoryClone);
-                categoryRef.current.parentNode.insertBefore(categoryClone, imageRef.current.nextSibling);
-            }
 
+        if (categoryRef.current && clonedCategoryContainerRef.current && !isCloned) {
+            const categoryClone = categoryRef.current.cloneNode(true);
+            clonedCategoryContainerRef.current.innerHTML = '';
+            clonedCategoryContainerRef.current.appendChild(categoryClone);
             setIsCloned(true);
         }
     }, [isCloned]);
 
-    const openModal = () => setIsOpen(true);
-    const closeModal = () => setIsOpen(false);
+    const openLoginModal = () => setIsLoginModalOpen(true);
+    const closeLoginModal = () => setIsLoginModalOpen(false);
+
+    const openCallModal = () => setIsCallModalOpen(true);
+    const closeCallModal = () => setIsCallModalOpen(false);
 
     return(
         <>
@@ -63,25 +104,49 @@ function Home() {
                 <Button>Buscar</Button>
                 <Login>
                     <img src={LoginImg} alt='icon-login' />
-                    <p onClick={openModal}>Faça Login</p>
+                    <p onClick={openLoginModal} >Faça Login {keyPressed}</p>
+                    {isLoginModalOpen && (
+                        <LoginModal className="login-modal">
+                            <LoginButton onClick={closeLoginModal}>Faça o login</LoginButton>
+                            <p>ou</p>
+                            <CadastroButon className='Cadastro' onClick={closeLoginModal}>Cadastre-se</CadastroButon>
+                        </LoginModal>
+                    )}
             </Login>
             <CallService>
                 <img src={CallImg} alt='icone-Atendimento' />
-                <p>Atendimento</p>
+                <p onClick={openCallModal}>Atendimento {keyPressed}</p>
+                {isCallModalOpen && (
+                    <CallModal>
+                        <p>Somos os verdadeiros especialistas em e-commerce</p>
+                        <button className='Fechar' onClick={closeCallModal}>Cadastre-se</button>
+                    </CallModal>
+                )}
             </CallService>
             <Cart>
                 <img src={CartIcon} alt='icone-Carrinho' />
                 <p>Carrinho</p>
             </Cart>
-        </Header><Banner>
+        </Header>
+            <Banner>
                 <img src={FullBanner} alt='Banner-Agrada' />
-            </Banner><Category ref={categoryRef} className='categoryOne'>
+            </Banner>
+            <Category ref={categoryRef} className='categoryOne'>
                 <h1>Vitrine de Produtos</h1>
-                <Carousel />
-            </Category><Image>
+                <Carousel openCartModal={openCartModal} />
+            </Category>
+            {isCartModalOpen && (
+                    <CartModal>
+                        <p>{cartMessage}</p>
+                        <button onClick={closeCartModal}>×</button>
+                    </CartModal>
+                )}
+            <Image>
                 <img src={BannerTemplates} className='templates' alt='banner-templates' />
                 <img src={BannerServices} alt='banner-serviços' />
-            </Image><AgradaResume>
+            </Image>
+            <div ref={clonedCategoryContainerRef}></div>
+            <AgradaResume>
                 <img src={LogoWithe} alt='Logo-Agrada' />
                 <p>A Agrada conta com uma equipe de profissionais com mais de 10 anos de experiência no mercado de e-commerce, e tem como objetivo desmistificar e simplificar a relação entre o cliente e a agência.
                     Aqui não falamos em “budget”, não temos “head of experience”, nem “CEO”. Entendemos que o processo de um projeto de e-commerce já é complexo o suficiente, não precisamos complicá-lo ainda
@@ -90,10 +155,7 @@ function Home() {
                 <p>Pagamento</p>
                 <img src={PaymentImg} alt='Formas de pagamento' />
             </Payment>
-
         </Container>
-
-        <Modal onClose={closeModal} />
         </>
     )
 }
