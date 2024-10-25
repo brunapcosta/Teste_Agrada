@@ -10,5 +10,8 @@ const globalStyle = createGlobalStyle`
         height: 100%;
         text-decoration: none;
     }
+    /* @media screen {
+        width: 1080px;
+    } */
 `;
 export default globalStyle

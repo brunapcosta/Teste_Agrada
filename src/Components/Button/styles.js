@@ -8,5 +8,12 @@ export const ContainerButton = styled.button`
     background: #34cb2e;
     border-radius: 5px;
     opacity: 1;
+    font-weight: bold;
+    font-size: 14px;
+    font-family: 'Poppins';
     cursor: pointer;
+    @media (max-width: 375px){
+        width: auto;
+        /* margin-right: 5px; */
+    }
 `

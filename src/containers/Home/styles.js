@@ -20,6 +20,7 @@ export const Header = styled.header`
         align-items: center;
         flex-direction: column; 
         height: auto; 
+        width: 100%;
     }
 `;
 
@@ -29,7 +30,8 @@ export const LogoAgrada = styled.div`
     width: 192px;
     height: 30px;
     @media (max-width: 375px) {
-        margin: 10px 20px;
+        margin-right: 20px;
+        width: auto;
     }
 `
 
@@ -43,8 +45,8 @@ export const Input = styled.input`
     border-radius: 5px;
     opacity: 1;
     @media (max-width: 375px) {
-        margin: 20px 20px 0 20px;
-        width: calc(100% - 40px); 
+        margin-right: 0px;
+        width: auto; 
     }
 `
 
@@ -77,6 +79,11 @@ export const Login = styled.div`
         height: 23px;
         background: transparent;
         opacity: 1;
+        @media (max-width: 375) {
+            margin-right: 10px;
+            width: 24px;
+            height: 25px;
+        }
     }
     p{
         cursor: pointer;
@@ -90,11 +97,20 @@ export const Login = styled.div`
             color:  #800080;
             text-decoration: underline;
         }
+        @media (max-width: 375px) {
+            margin-left: 5px;
+            margin-top: 0px;
+            width: auto;
+            font-size: 20px;
+            font-weight: 400;
+        }
     }
     @media (max-width: 375px) {
+        display: flex;
+        margin-left: 0px;
+        width: auto;
         grid-template-columns: 1fr;
-        align-items: center; 
-        margin: 10px 0; 
+        align-items: center;  
     }
 `
 
@@ -107,10 +123,10 @@ export const CallService = styled.div`
     height: 23px;
 
     @media (max-width: 375px) {
-        grid-template-columns: 1fr;
-        justify-content: center; 
-        margin-left: 0; 
-        margin-top: 10px;
+        width: auto;
+        display: flex;
+        margin-left: 30px; 
+        margin-top: 55px;
     }
     img{
         margin-right: 8px;
@@ -119,7 +135,7 @@ export const CallService = styled.div`
         background: transparent;
         opacity: 1;
         @media (max-width: 375px) {
-            margin: 0 auto 5px;
+            margin-right: 10px;
     }
     }
     p{
@@ -135,11 +151,11 @@ export const CallService = styled.div`
             color:  #800080;
             text-decoration: underline;
         }
-        @media (max-width: 375px) {
+        /* @media (max-width: 375px) {
             margin: 0;
             text-align: center;
             font-size: 11px;
-    }
+    } */
     }
     
 `
@@ -171,9 +187,9 @@ export const Cart = styled.div`
         }
     }
     @media (max-width: 375px) {
-        grid-template-columns: 1fr;
-        align-items: center; 
-        margin: 10px 0; 
+        width: auto;
+        display: flex;
+        margin-right: 10px;
     }
 `
 
@@ -192,13 +208,18 @@ export const Banner = styled.div`
 
 export const Category = styled.div`
     width: 100%;
-    max-width: 1285px;
-    height: auto;
-    margin: 72px auto;
+    max-width: 1251px;
+    height: 567px;
+    /* margin: 72px auto; */
     margin-left: 100px;
-    margin-bottom: 30px;
-    @media (max-width: 768px) {
-        margin-left: 20px; 
+    /* margin-bottom: 30px; */
+    @media (max-width: 375px) {
+        width: auto;
+        /* max-width: 375px; */
+        height: auto;
+        /* margin: 72px auto; */
+        max-width: 400px;
+        margin: 0 auto;
     }
 `
 
@@ -210,24 +231,48 @@ export const Image = styled.div`
     margin-left: 100px;
     width: 1250px;
     height: 260px;
+    justify-content: space-between;
     @media (max-width: 375px) {
+        display: flex;
         flex-direction: column;
+        justify-content: space-between;
         margin-left: 0;
-        margin-top: 40px;
-        margin-bottom: 40px;
-        width: 100%;
-    }
-    .templates{
+        margin-top: 20px;
+        margin-bottom: 20px;
+        width: auto;
+        }
+    img{
         width: 620px;
         height: 260px;
-        margin-right: 10px;
         @media (max-width: 375px) {
-            width: 100%;
+            width: auto;
             height: auto;
-            margin-right: 0;
-            margin-bottom: 20px;
         }
+        /* .templates{
+                margin-right: 10px;
+            @media (max-width: 375px) {
+                margin-right: 5px;
+            }
+        } */
     }
+`
+export const Div = styled.div`
+    .clonedCategoryContainerRef{
+        width: 100%;
+        max-width: 1285px;
+        height: auto;
+        margin: 72px auto;
+        margin-left: 100px;
+        margin-bottom: 30px;
+        @media (max-width: 375px) {
+            width: auto;
+            /* max-width: 375px; */
+            height: auto;
+            /* margin: 72px auto; */
+            max-width: 400px;
+            margin: 0 auto;
+        }
+}
 `
 
 export const AgradaResume = styled.div`
@@ -238,6 +283,9 @@ export const AgradaResume = styled.div`
     height: 118px;
     background-color: #000000;
     opacity: 1;
+    @media (max-width: 375px) {
+        width: auto;
+    }
     img{
         margin-right: 46px;
         width: 184px;
@@ -245,8 +293,8 @@ export const AgradaResume = styled.div`
         background-color: transparent;
         opacity: 1;
         @media (max-width: 375px) {
-            margin-right: 0;  
-            width: 150px;
+            margin-right: 40px;  
+            width: auto;
         }
     }
     p{
@@ -258,9 +306,8 @@ export const AgradaResume = styled.div`
         font-family: 'Axiforma';
         color: #FFFFFF;
         @media (max-width: 375px) {
-            width: 100%;
-            font-size: 10px;
-            text-align: center;
+            width: 60%;
+            text-align: left;
         }
     }
 `
@@ -274,8 +321,9 @@ export const Payment = styled.div`
     background: #FFFFFF;
     opacity: 1;
     @media (max-width: 375px) {
-        height: auto;
-        padding: 10px;
+        width: 100%;
+        height: 110px;
+        /* padding: 10px; */
     }
     p{
         margin-left: 125px;
@@ -286,9 +334,9 @@ export const Payment = styled.div`
         font-size: 15px;
         font-family: 'Poppins';
         @media (max-width: 375px) {
-            margin-left: 0;
+            margin-bottom: 0;
             width: auto;
-            font-size: 14px;
+            /* font-size: 14px; */
         }
     }
     img{
@@ -297,20 +345,12 @@ export const Payment = styled.div`
         background: transparent;
         opacity: 1;
         @media (max-width: 375px) {
+            margin-bottom: 10px;
             width: 100%;
-            height: auto;
+            height: 50%;
         }
     }
 `
-
-// export const ContainerLogin = styled.div`
-//     display: flex;
-//     flex-direction: column;
-//     background-color: white;
-//     border-radius: 8px;
-//     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-//     opacity: 1;
-// `
 export const LoginModal = styled.div`
     margin-top: 30px;
     display: grid;

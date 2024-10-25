@@ -27,7 +27,8 @@ import {
     LoginModal,
     CartModal,
     CadastroButon,
-    CallModal
+    CallModal,
+    Div
 } from './styles';
 
 
@@ -145,7 +146,7 @@ function Home() {
                 <img src={BannerTemplates} className='templates' alt='banner-templates' />
                 <img src={BannerServices} alt='banner-serviços' />
             </Image>
-            <div ref={clonedCategoryContainerRef}></div>
+            <Div ref={clonedCategoryContainerRef}></Div>
             <AgradaResume>
                 <img src={LogoWithe} alt='Logo-Agrada' />
                 <p>A Agrada conta com uma equipe de profissionais com mais de 10 anos de experiência no mercado de e-commerce, e tem como objetivo desmistificar e simplificar a relação entre o cliente e a agência.
